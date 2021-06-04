@@ -20,6 +20,7 @@
     "analyze": "size-limit --why"
   },
   "peerDependencies": {
+    "fp-ts": "^2.10.5",
     "react": ">=16"
   },
   "husky": {
@@ -57,5 +58,9 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.2.0",
     "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^1.13.1",
+    "fp-ts-react-stable-hooks": "^1.2.0"
   }
 }
