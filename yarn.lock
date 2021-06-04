@@ -917,6 +917,16 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@devexperts/remote-data-ts@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@devexperts/remote-data-ts/-/remote-data-ts-2.0.5.tgz#7a8ec88587ca132e8d608e23abf453423026f63b"
+  integrity sha512-Eb84KGBFyhGFIK0WCyl7pT0MSOaj+4ZWJLBd7gaW6/GyeMBzpOyZyJls8QIYcpef3hUPx4rH0x2Dy3xq9mUFaw==
+  dependencies:
+    fp-ts "^2.0.0"
+    io-ts "^2.0.0"
+    io-ts-types "^0.5.7"
+    tslib "^1.9.3"
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
@@ -3923,7 +3933,7 @@ fp-ts-react-stable-hooks@^1.2.0:
   resolved "https://registry.yarnpkg.com/fp-ts-react-stable-hooks/-/fp-ts-react-stable-hooks-1.2.0.tgz#5c3665f49b3e4d609fd31adddeb95df5111ef2fa"
   integrity sha512-gDzx7qh7Eo04NwuWQ+CIzXBtNC6OxCHAB4ExTXJBHUFcnMFFRJbJnCvkc/PGSEQpeyfRa1GWvknNgGc9yM7rng==
 
-fp-ts@^2.10.5:
+fp-ts@^2.0.0:
   version "2.10.5"
   resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.10.5.tgz#7c77868fe8bd9b229743303c1bec505b959f631b"
   integrity sha512-X2KfTIV0cxIk3d7/2Pvp/pxL/xr2MV1WooyEzKtTWYSc1+52VF4YzjBTXqeOlSiZsPCxIBpDGfT9Dyo7WEY0DQ==
@@ -4404,6 +4414,16 @@ interpret@^1.0.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
+
+io-ts-types@^0.5.7:
+  version "0.5.16"
+  resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.5.16.tgz#e9eed75371e217c97050cc507915e8eedc250946"
+  integrity sha512-h9noYVfY9rlbmKI902SJdnV/06jgiT2chxG6lYDxaYNp88HscPi+SBCtmcU+m0E7WT5QSwt7sIMj93+qu0FEwQ==
+
+io-ts@^2.0.0:
+  version "2.2.16"
+  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.2.16.tgz#597dffa03db1913fc318c9c6df6931cb4ed808b2"
+  integrity sha512-y5TTSa6VP6le0hhmIyN0dqEXkrZeJLeC5KApJq6VLci3UEKF80lZ+KuoUs02RhBxNWlrqSNxzfI7otLX1Euv8Q==
 
 ip-regex@^2.1.0:
   version "2.1.0"

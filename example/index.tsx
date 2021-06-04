@@ -1,9 +1,11 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Provider, useSupabase } from '../.';
+import { Provider, useTable } from '../.';
 import { createClient } from '@supabase/supabase-js';
-import * as O from 'fp-ts/Option';
+import * as RD from '@devexperts/remote-data-ts';
+import { constant, pipe } from 'fp-ts/lib/function';
+import { definitions } from './types/supabase';
 
 const App = () => {
   const client = createClient(
@@ -13,15 +15,28 @@ const App = () => {
 
   return (
     <Provider value={client}>
-      <div>Hello world!</div>
       <Consumer />
     </Provider>
   );
 };
 
 const Consumer = () => {
-  const client = useSupabase();
-  return <div>{O.isSome(client)}</div>;
+  const result = useTable<definitions['test']>('test');
+  return pipe(
+    result,
+    RD.fold(
+      constant(<div>Should be impossible</div>),
+      constant(<div>Loading...</div>),
+      e => <div>Fucken failed: {e}</div>,
+      result => (
+        <div>
+          {result.map(row => (
+            <div key={row.id}>{row.text}</div>
+          ))}
+        </div>
+      )
+    )
+  );
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));

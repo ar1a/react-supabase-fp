@@ -8,6 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "@devexperts/remote-data-ts": "^2.0.5",
     "@supabase/supabase-js": "^1.13.1",
     "fp-ts": "^2.10.5",
     "react-app-polyfill": "^1.0.0"
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.8.4",
+    "openapi-typescript": "^4.0.0",
     "parcel": "1.12.3",
     "typescript": "^3.4.5"
   }
