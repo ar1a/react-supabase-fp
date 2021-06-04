@@ -4,6 +4,7 @@ import { pipe } from 'fp-ts/lib/function';
 import { useEffect, useState } from 'react';
 import * as RD from '@devexperts/remote-data-ts';
 
+// TODO: Figure out a way to do filters
 export const useSingle = <T = any>(
   tableName: string,
   selectArgs: string = '*'

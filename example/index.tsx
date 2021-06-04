@@ -9,8 +9,8 @@ import { definitions } from './types/supabase';
 
 const App = () => {
   const client = createClient(
-    'https://sxireyujtzcnyjcuranb.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyMjgyMDIzNCwiZXhwIjoxOTM4Mzk2MjM0fQ.CVA2Vywb7NzbuMS73Sl4uEeTQppfk0MOmAUfL2FOEDQ'
+    'https://uxtxhzqpveqocjohidmf.supabase.co',
+    process.env.SUPABASE_ANON_KEY!
   );
 
   return (
