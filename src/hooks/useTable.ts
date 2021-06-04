@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 import * as RD from '@devexperts/remote-data-ts';
 
 export const useTable = <T = any>(
-  tableName: string
+  tableName: string,
+  selectArgs: string = '*'
 ): RD.RemoteData<string, T[]> => {
   const supabase = useSupabase();
 
@@ -16,7 +17,7 @@ export const useTable = <T = any>(
       supabase,
       TE.fromOption(() => 'You must use useTable with a Provider!'),
       TE.chainTaskK(supabase => async () =>
-        await supabase.from<T>(tableName).select()
+        await supabase.from<T>(tableName).select(selectArgs)
       ),
       TE.chain(({ data, error }) => {
         if (error)
