@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Provider, useSingle, useTable } from '../.';
+import { Provider, useSingle, useTable, useUpsert } from '../.';
 import { createClient } from '@supabase/supabase-js';
 import * as RD from '@devexperts/remote-data-ts';
 import { constant, pipe } from 'fp-ts/lib/function';
@@ -22,13 +22,30 @@ const App = () => {
 
 const Consumer = () => {
   const result = useSingle<definitions['test']>('test');
+  const [upsertResult, execute] = useUpsert<definitions['test']>('test');
   return pipe(
     result,
     RD.fold(
       constant(<div>Should be impossible</div>),
       constant(<div>Loading...</div>),
       e => <div>Fucken failed: {e}</div>,
-      result => <div>{<div key={result.id}>{result.text}</div>}</div>
+      result => {
+        return (
+          <div>
+            {<div key={result.id}>{result.text}</div>}
+            <button
+              onClick={() =>
+                execute({
+                  ...result,
+                  text: result.text + ' UPDATED',
+                })
+              }
+            >
+              Update
+            </button>
+          </div>
+        );
+      }
     )
   );
 };
