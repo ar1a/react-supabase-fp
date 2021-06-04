@@ -4,23 +4,26 @@ import { pipe } from 'fp-ts/lib/function';
 import { useEffect, useState } from 'react';
 import * as RD from '@devexperts/remote-data-ts';
 
-export const useTable = <T = any>(
+export const useSingle = <T = any>(
   tableName: string,
   selectArgs: string = '*'
-): RD.RemoteData<string, T[]> => {
+): RD.RemoteData<string, T> => {
   const supabase = useSupabase();
 
-  const [result, setResult] = useState<RD.RemoteData<string, T[]>>(RD.pending);
+  const [result, setResult] = useState<RD.RemoteData<string, T>>(RD.pending);
 
   useEffect(() => {
     pipe(
       supabase,
       TE.fromOption(() => 'You must use useTable with a Provider!'),
       TE.chainTaskK(supabase => async () =>
-        await supabase.from<T>(tableName).select(selectArgs)
+        await supabase
+          .from<T>(tableName)
+          .select(selectArgs)
+          .limit(1)
+          .single()
       ),
       TE.chain(({ data, error }) => {
-        // TODO: Only print details and hint if there are details and hint
         if (error)
           return TE.left(`${error.message} - ${error.details} - ${error.hint}`);
         else return TE.right(data!);
