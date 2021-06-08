@@ -105,6 +105,7 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.test.id"];
           text?: parameters["rowFilter.test.text"];
+          optional?: parameters["rowFilter.test.optional"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -157,6 +158,7 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.test.id"];
           text?: parameters["rowFilter.test.text"];
+          optional?: parameters["rowFilter.test.optional"];
         };
         header: {
           /** Preference */
@@ -173,6 +175,7 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.test.id"];
           text?: parameters["rowFilter.test.text"];
+          optional?: parameters["rowFilter.test.optional"];
         };
         body: {
           /** test */
@@ -206,6 +209,7 @@ export interface definitions {
      */
     id: number;
     text: string;
+    optional?: number;
   };
 }
 
@@ -237,6 +241,7 @@ export interface parameters {
   "body.test": definitions["test"];
   "rowFilter.test.id": string;
   "rowFilter.test.text": string;
+  "rowFilter.test.optional": string;
 }
 
 export interface operations {}

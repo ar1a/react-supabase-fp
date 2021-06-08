@@ -1,6 +1,5 @@
 TODO LIST:
 
-- useInsert
 - useUpdate
 - useTable rename to useSelect?
 

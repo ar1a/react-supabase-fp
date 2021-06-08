@@ -4,3 +4,4 @@ export * from './useSingle';
 export * from './useUpsert';
 export * from './useFilter';
 export * from './useDelete';
+export * from './useInsert';

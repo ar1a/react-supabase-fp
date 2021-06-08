@@ -1,14 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {
-  Provider,
-  useDelete,
-  useFilter,
-  useSingle,
-  useTable,
-  useUpsert,
-} from '../.';
+import { Provider, useFilter, useInsert } from '../.';
 import { createClient } from '@supabase/supabase-js';
 import * as RD from '@devexperts/remote-data-ts';
 import { constant, pipe } from 'fp-ts/lib/function';
@@ -29,13 +22,21 @@ const App = () => {
 
 const Consumer = () => {
   const filter = useFilter<definitions['test']>(query => query.eq('id', 2));
-  const [result, execute] = useDelete<definitions['test']>('test');
+  const [result, execute] = useInsert<definitions['test']>('test');
   return pipe(
     result,
     RD.fold(
       constant(
         <div>
-          <button onClick={() => execute(filter)}>DELETE ID 2</button>
+          <button
+            onClick={() =>
+              execute([
+                { text: 'test!!', optional: Math.floor(Math.random() * 8) },
+              ])
+            }
+          >
+            CREATE ID n
+          </button>
         </div>
       ),
       constant(<div>Loading...</div>),
