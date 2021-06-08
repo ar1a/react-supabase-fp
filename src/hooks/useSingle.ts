@@ -6,11 +6,13 @@ import { useStable } from 'fp-ts-react-stable-hooks';
 import * as RD from '@devexperts/remote-data-ts';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
+import { Filter } from '../types';
 
 // TODO: Figure out a way to do filters
 export const useSingle = <T = any>(
   tableName: string,
   selectArgs: string = '*',
+  filter?: Filter<T>,
   eq: E.Eq<T> = E.eqStrict
 ): RD.RemoteData<string, T> => {
   const supabase = useSupabase();
@@ -24,13 +26,13 @@ export const useSingle = <T = any>(
     pipe(
       supabase,
       TE.fromOption(() => 'You must use useTable with a Provider!'),
-      TE.chainTaskK(supabase => async () =>
-        await supabase
+      TE.chainTaskK(supabase => async () => {
+        const req = supabase
           .from<T>(tableName)
           .select(selectArgs)
-          .limit(1)
-          .single()
-      ),
+          .limit(1);
+        return await (filter ? filter(req).single() : req.single());
+      }),
       TE.chain(({ data, error }) => {
         if (error)
           return TE.left(`${error.message} - ${error.details} - ${error.hint}`);
