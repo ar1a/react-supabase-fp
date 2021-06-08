@@ -3933,7 +3933,7 @@ fp-ts-react-stable-hooks@^1.2.0:
   resolved "https://registry.yarnpkg.com/fp-ts-react-stable-hooks/-/fp-ts-react-stable-hooks-1.2.0.tgz#5c3665f49b3e4d609fd31adddeb95df5111ef2fa"
   integrity sha512-gDzx7qh7Eo04NwuWQ+CIzXBtNC6OxCHAB4ExTXJBHUFcnMFFRJbJnCvkc/PGSEQpeyfRa1GWvknNgGc9yM7rng==
 
-fp-ts@^2.0.0:
+fp-ts@^2.0.0, fp-ts@^2.10.5:
   version "2.10.5"
   resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.10.5.tgz#7c77868fe8bd9b229743303c1bec505b959f631b"
   integrity sha512-X2KfTIV0cxIk3d7/2Pvp/pxL/xr2MV1WooyEzKtTWYSc1+52VF4YzjBTXqeOlSiZsPCxIBpDGfT9Dyo7WEY0DQ==
