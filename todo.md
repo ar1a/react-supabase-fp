@@ -1,5 +1,7 @@
 TODO LIST:
 
+- at some point, create a README and docs
+
 - storage stuff
 - useUpload
 - useDownload
