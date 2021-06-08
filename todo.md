@@ -1,6 +1,5 @@
 TODO LIST:
 
-- useUpdate
 - useTable rename to useSelect?
 
 - useUser

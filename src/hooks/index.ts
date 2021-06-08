@@ -5,3 +5,4 @@ export * from './useUpsert';
 export * from './useFilter';
 export * from './useDelete';
 export * from './useInsert';
+export * from './useUpdate';
