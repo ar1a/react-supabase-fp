@@ -8,7 +8,6 @@ import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
 import { Filter } from '../types';
 
-// TODO: Figure out a way to do filters
 export const useSingle = <T = any>(
   tableName: string,
   selectArgs: string = '*',
@@ -25,7 +24,7 @@ export const useSingle = <T = any>(
   useEffect(() => {
     pipe(
       supabase,
-      TE.fromOption(() => 'You must use useTable with a Provider!'),
+      TE.fromOption(() => 'You must use useSingle with a Provider!'),
       TE.chainTaskK(supabase => async () => {
         const req = supabase
           .from<T>(tableName)
