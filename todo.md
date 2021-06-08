@@ -1,7 +1,5 @@
 TODO LIST:
 
-- useTable rename to useSelect?
-
 - useUser
 - some other auth related things?
 
