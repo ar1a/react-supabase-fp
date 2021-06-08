@@ -3,12 +3,13 @@ import * as RD from '@devexperts/remote-data-ts';
 import * as TE from 'fp-ts/TaskEither';
 import { useState } from 'react';
 import { pipe } from 'fp-ts/lib/function';
+import { Filter } from '../types';
 
 export const useUpsert = <T = any>(
   tableName: string
 ): [
   RD.RemoteData<string, T | T[]>,
-  (values: Partial<T> | Partial<T>[]) => Promise<void>
+  (values: Partial<T> | Partial<T>[], filter?: Filter<T>) => Promise<void>
 ] => {
   const supabase = useSupabase();
 
@@ -17,14 +18,18 @@ export const useUpsert = <T = any>(
     RD.initial
   );
 
-  const execute = async (values: Partial<T> | Partial<T>[]) => {
+  const execute = async (
+    values: Partial<T> | Partial<T>[],
+    filter?: Filter<T>
+  ) => {
     setResult(RD.pending);
     pipe(
       supabase,
       TE.fromOption(() => 'You must use useUpsert from inside a Provider!'),
-      TE.chainTaskK(supabase => async () =>
-        await supabase.from<T>(tableName).upsert(values)
-      ),
+      TE.chainTaskK(supabase => async () => {
+        const req = supabase.from<T>(tableName).upsert(values);
+        return await (filter ? filter(req) : req);
+      }),
       TE.chain(({ data, error }) => {
         if (error)
           return TE.left(`${error.message} - ${error.details} - ${error.hint}`);
