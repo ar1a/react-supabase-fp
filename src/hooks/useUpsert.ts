@@ -12,6 +12,7 @@ export const useUpsert = <T = any>(
 ] => {
   const supabase = useSupabase();
 
+  // TODO: Figure out a way to do useStable/Eq for T | T[]
   const [result, setResult] = useState<RD.RemoteData<string, T | T[]>>(
     RD.initial
   );

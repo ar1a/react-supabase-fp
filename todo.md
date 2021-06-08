@@ -1,14 +1,5 @@
 TODO LIST:
 
-- LICENSE
-
-- use stable hooks
-
-- useDelete
-- useInsert
-- useUpdate
-- useTable rename to useSelect?
-
 - figure out filtering. how does react-supabase do it?
 
 ```ts
@@ -25,6 +16,11 @@ export function useFilter<Data = any>(filter: Filter<Data>, deps: any[] = []) {
   return callback;
 }
 ```
+
+- useDelete
+- useInsert
+- useUpdate
+- useTable rename to useSelect?
 
 - useUser
 - some other auth related things?

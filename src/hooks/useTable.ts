@@ -1,16 +1,24 @@
 import { useSupabase } from './useSupabase';
 import * as TE from 'fp-ts/TaskEither';
 import { pipe } from 'fp-ts/lib/function';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+
 import * as RD from '@devexperts/remote-data-ts';
+import { useStable } from 'fp-ts-react-stable-hooks';
+import * as S from 'fp-ts/string';
+import * as E from 'fp-ts/Eq';
 
 export const useTable = <T = any>(
   tableName: string,
-  selectArgs: string = '*'
+  selectArgs: string = '*',
+  eq: E.Eq<T[]> = E.eqStrict
 ): RD.RemoteData<string, T[]> => {
   const supabase = useSupabase();
 
-  const [result, setResult] = useState<RD.RemoteData<string, T[]>>(RD.pending);
+  const [result, setResult] = useStable<RD.RemoteData<string, T[]>>(
+    RD.pending,
+    RD.getEq(S.Eq, eq)
+  );
 
   useEffect(() => {
     pipe(
