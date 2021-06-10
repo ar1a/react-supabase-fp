@@ -2,7 +2,6 @@ TODO LIST:
 
 - at some point, create a README and docs
 
-- refactor out if(error) stuff
 - use flow for setResult(RD.fromEither(result))
 
 - storage stuff

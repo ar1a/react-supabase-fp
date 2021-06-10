@@ -6,6 +6,7 @@ import { Filter } from '../types';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
+import { queryToTE } from '../utils';
 
 export const useUpdate = <T = unknown>(
   tableName: string,
@@ -29,12 +30,7 @@ export const useUpdate = <T = unknown>(
       TE.chainTaskK(supabase => async () =>
         await filter(supabase.from<T>(tableName).update(values))
       ),
-      TE.chain(({ data, error }) => {
-        if (error)
-          return TE.left(`${error.message} - ${error.details} - ${error.hint}`);
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        else return TE.right(data!);
-      })
+      TE.chain(queryToTE)
     )().then(result => setResult(RD.fromEither(result)));
   };
 

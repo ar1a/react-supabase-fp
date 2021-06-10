@@ -4,6 +4,7 @@ import * as TE from 'fp-ts/TaskEither';
 import { useState } from 'react';
 import { constant, pipe } from 'fp-ts/lib/function';
 import { Filter } from '../types';
+import { queryToTE } from '../utils';
 
 export const useUpsert = <T = unknown>(
   tableName: string
@@ -30,12 +31,7 @@ export const useUpsert = <T = unknown>(
         const req = supabase.from<T>(tableName).upsert(values);
         return await (filter ? filter(req) : req);
       }),
-      TE.chain(({ data, error }) => {
-        if (error)
-          return TE.left(`${error.message} - ${error.details} - ${error.hint}`);
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        else return TE.right(data!);
-      })
+      TE.chain(queryToTE)
     )().then(result => setResult(RD.fromEither(result)));
   };
 

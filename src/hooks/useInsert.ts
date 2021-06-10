@@ -5,6 +5,7 @@ import { constant, pipe } from 'fp-ts/lib/function';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
+import { queryToTE } from '../utils';
 
 export const useInsert = <T = unknown>(
   tableName: string,
@@ -28,12 +29,7 @@ export const useInsert = <T = unknown>(
       TE.chainTaskK(supabase => async () =>
         await supabase.from<T>(tableName).insert(values)
       ),
-      TE.chain(({ data, error }) => {
-        if (error)
-          return TE.left(`${error.message} - ${error.details} - ${error.hint}`);
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        else return TE.right(data!);
-      })
+      TE.chain(queryToTE)
     )().then(result => setResult(RD.fromEither(result)));
   };
 

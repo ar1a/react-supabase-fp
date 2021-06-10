@@ -8,6 +8,7 @@ import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
 import { Filter } from '../types';
+import { queryToTE } from '../utils';
 
 export const useTable = <T = unknown>(
   tableName: string,
@@ -30,13 +31,7 @@ export const useTable = <T = unknown>(
         const req = supabase.from<T>(tableName).select(selectArgs);
         return await (filter ? filter(req) : req);
       }),
-      TE.chain(({ data, error }) => {
-        // TODO: Only print details and hint if there are details and hint
-        if (error)
-          return TE.left(`${error.message} - ${error.details} - ${error.hint}`);
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        else return TE.right(data!);
-      })
+      TE.chain(queryToTE)
     )().then(result => setResult(RD.fromEither(result)));
   }, []);
 
