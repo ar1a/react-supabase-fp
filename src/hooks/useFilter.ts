@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 import { Filter } from '../types';
 
-export const useFilter = <Data = any>(
+export const useFilter = <Data = unknown>(
   filter: Filter<Data>,
-  deps: any[] = []
-) => {
+  deps: unknown[] = []
+): Filter<Data> => {
   const callback = useCallback(filter, deps);
   return callback;
 };

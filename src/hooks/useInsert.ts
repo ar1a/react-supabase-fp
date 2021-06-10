@@ -6,7 +6,7 @@ import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
 
-export const useInsert = <T = any>(
+export const useInsert = <T = unknown>(
   tableName: string,
   eq: E.Eq<T[]> = E.eqStrict
 ): [
@@ -31,6 +31,7 @@ export const useInsert = <T = any>(
       TE.chain(({ data, error }) => {
         if (error)
           return TE.left(`${error.message} - ${error.details} - ${error.hint}`);
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         else return TE.right(data!);
       })
     )().then(result => setResult(RD.fromEither(result)));

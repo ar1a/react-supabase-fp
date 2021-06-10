@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { pipe } from 'fp-ts/lib/function';
 import { Filter } from '../types';
 
-export const useUpsert = <T = any>(
+export const useUpsert = <T = unknown>(
   tableName: string
 ): [
   RD.RemoteData<string, T | T[]>,
@@ -33,6 +33,7 @@ export const useUpsert = <T = any>(
       TE.chain(({ data, error }) => {
         if (error)
           return TE.left(`${error.message} - ${error.details} - ${error.hint}`);
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         else return TE.right(data!);
       })
     )().then(result => setResult(RD.fromEither(result)));

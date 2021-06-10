@@ -9,9 +9,9 @@ import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
 import { Filter } from '../types';
 
-export const useTable = <T = any>(
+export const useTable = <T = unknown>(
   tableName: string,
-  selectArgs: string = '*',
+  selectArgs = '*',
   filter?: Filter<T>,
   eq: E.Eq<T[]> = E.eqStrict
 ): RD.RemoteData<string, T[]> => {
@@ -34,6 +34,7 @@ export const useTable = <T = any>(
         // TODO: Only print details and hint if there are details and hint
         if (error)
           return TE.left(`${error.message} - ${error.details} - ${error.hint}`);
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         else return TE.right(data!);
       })
     )().then(result => setResult(RD.fromEither(result)));
