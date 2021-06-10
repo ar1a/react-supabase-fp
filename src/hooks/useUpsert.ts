@@ -2,7 +2,7 @@ import { useSupabase } from './useSupabase';
 import * as RD from '@devexperts/remote-data-ts';
 import * as TE from 'fp-ts/TaskEither';
 import { useState } from 'react';
-import { constant, pipe } from 'fp-ts/lib/function';
+import { constant, flow, pipe } from 'fp-ts/lib/function';
 import { Filter } from '../types';
 import { queryToTE } from '../utils';
 
@@ -32,7 +32,7 @@ export const useUpsert = <T = unknown>(
         return await (filter ? filter(req) : req);
       }),
       TE.chain(queryToTE)
-    )().then(result => setResult(RD.fromEither(result)));
+    )().then(flow(RD.fromEither, setResult));
   };
 
   return [result, execute];

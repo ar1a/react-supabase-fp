@@ -2,8 +2,6 @@ TODO LIST:
 
 - at some point, create a README and docs
 
-- use flow for setResult(RD.fromEither(result))
-
 - storage stuff
 - useUpload
 - useDownload

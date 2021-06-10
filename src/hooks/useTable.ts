@@ -1,6 +1,6 @@
 import { useSupabase } from './useSupabase';
 import * as TE from 'fp-ts/TaskEither';
-import { constant, pipe } from 'fp-ts/lib/function';
+import { constant, flow, pipe } from 'fp-ts/lib/function';
 import { useEffect } from 'react';
 
 import * as RD from '@devexperts/remote-data-ts';
@@ -32,7 +32,7 @@ export const useTable = <T = unknown>(
         return await (filter ? filter(req) : req);
       }),
       TE.chain(queryToTE)
-    )().then(result => setResult(RD.fromEither(result)));
+    )().then(flow(RD.fromEither, setResult));
   }, []);
 
   return result;

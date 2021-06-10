@@ -1,7 +1,7 @@
 import { useSupabase } from './useSupabase';
 import * as RD from '@devexperts/remote-data-ts';
 import * as TE from 'fp-ts/TaskEither';
-import { constant, pipe } from 'fp-ts/lib/function';
+import { constant, flow, pipe } from 'fp-ts/lib/function';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
@@ -30,7 +30,7 @@ export const useInsert = <T = unknown>(
         await supabase.from<T>(tableName).insert(values)
       ),
       TE.chain(queryToTE)
-    )().then(result => setResult(RD.fromEither(result)));
+    )().then(flow(RD.fromEither, setResult));
   };
 
   return [result, execute];

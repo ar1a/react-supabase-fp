@@ -1,7 +1,7 @@
 import { useSupabase } from './useSupabase';
 import * as RD from '@devexperts/remote-data-ts';
 import * as TE from 'fp-ts/TaskEither';
-import { constant, pipe } from 'fp-ts/lib/function';
+import { constant, flow, pipe } from 'fp-ts/lib/function';
 import { Filter } from '../types';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
@@ -28,7 +28,7 @@ export const useDelete = <T = unknown>(
         await filter(supabase.from<T>(tableName).delete())
       ),
       TE.chain(queryToTE)
-    )().then(result => setResult(RD.fromEither(result)));
+    )().then(flow(RD.fromEither, setResult));
   };
 
   return [result, execute];
