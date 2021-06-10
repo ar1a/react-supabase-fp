@@ -2,9 +2,9 @@ import { useSupabase } from './useSupabase';
 import * as RD from '@devexperts/remote-data-ts';
 import * as TE from 'fp-ts/TaskEither';
 import { useState } from 'react';
-import { constant, flow, pipe } from 'fp-ts/lib/function';
+import { constant, flow, identity, pipe } from 'fp-ts/lib/function';
 import { Filter } from '../types';
-import { queryToTE } from '../utils';
+import { promiseLikeToPromise, queryToTE } from '../utils';
 
 export const useUpsert = <T = unknown>(
   tableName: string
@@ -27,10 +27,10 @@ export const useUpsert = <T = unknown>(
     pipe(
       supabase,
       TE.fromOption(constant('You must use useUpsert from inside a Provider!')),
-      TE.chainTaskK(supabase => async () => {
-        const req = supabase.from<T>(tableName).upsert(values);
-        return await (filter ? filter(req) : req);
-      }),
+      TE.map(supabase => supabase.from<T>(tableName).upsert(values)),
+      TE.map(filter || identity),
+      TE.map(promiseLikeToPromise),
+      TE.chainTaskK(constant),
       TE.chain(queryToTE)
     )().then(flow(RD.fromEither, setResult));
   };

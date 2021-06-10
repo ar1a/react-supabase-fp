@@ -6,7 +6,7 @@ import { Filter } from '../types';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
-import { queryToTE } from '../utils';
+import { promiseLikeToPromise, queryToTE } from '../utils';
 
 export const useDelete = <T = unknown>(
   tableName: string,
@@ -24,9 +24,10 @@ export const useDelete = <T = unknown>(
     pipe(
       supabase,
       TE.fromOption(constant('You must use useDelete from inside a Provider!')),
-      TE.chainTaskK(supabase => async () =>
-        await filter(supabase.from<T>(tableName).delete())
-      ),
+      TE.map(supabase => supabase.from<T>(tableName).delete()),
+      TE.map(filter),
+      TE.map(promiseLikeToPromise),
+      TE.chainTaskK(constant),
       TE.chain(queryToTE)
     )().then(flow(RD.fromEither, setResult));
   };

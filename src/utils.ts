@@ -19,3 +19,7 @@ export const queryToTE = <T>({
     ? TE.left(`${error.message} - ${error.details} - ${error.hint}`)
     : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       TE.right(data!);
+
+export const promiseLikeToPromise = <T>(
+  promiseLike: PromiseLike<T>
+): Promise<T> => Promise.resolve(promiseLike);
