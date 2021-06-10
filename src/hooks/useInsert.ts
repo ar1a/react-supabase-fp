@@ -1,7 +1,7 @@
 import { useSupabase } from './useSupabase';
 import * as RD from '@devexperts/remote-data-ts';
 import * as TE from 'fp-ts/TaskEither';
-import { pipe } from 'fp-ts/lib/function';
+import { constant, pipe } from 'fp-ts/lib/function';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
@@ -24,7 +24,7 @@ export const useInsert = <T = unknown>(
     setResult(RD.pending);
     pipe(
       supabase,
-      TE.fromOption(() => 'You must use useUpsert from inside a Provider!'),
+      TE.fromOption(constant('You must use useUpsert from inside a Provider!')),
       TE.chainTaskK(supabase => async () =>
         await supabase.from<T>(tableName).insert(values)
       ),

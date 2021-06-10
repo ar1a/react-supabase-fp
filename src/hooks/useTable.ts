@@ -1,6 +1,6 @@
 import { useSupabase } from './useSupabase';
 import * as TE from 'fp-ts/TaskEither';
-import { pipe } from 'fp-ts/lib/function';
+import { constant, pipe } from 'fp-ts/lib/function';
 import { useEffect } from 'react';
 
 import * as RD from '@devexperts/remote-data-ts';
@@ -25,7 +25,7 @@ export const useTable = <T = unknown>(
   useEffect(() => {
     pipe(
       supabase,
-      TE.fromOption(() => 'You must use useTable with a Provider!'),
+      TE.fromOption(constant('You must use useTable with a Provider!')),
       TE.chainTaskK(supabase => async () => {
         const req = supabase.from<T>(tableName).select(selectArgs);
         return await (filter ? filter(req) : req);

@@ -2,7 +2,7 @@ import { useSupabase } from './useSupabase';
 import * as RD from '@devexperts/remote-data-ts';
 import * as TE from 'fp-ts/TaskEither';
 import { useState } from 'react';
-import { pipe } from 'fp-ts/lib/function';
+import { constant, pipe } from 'fp-ts/lib/function';
 import { Filter } from '../types';
 
 export const useUpsert = <T = unknown>(
@@ -25,7 +25,7 @@ export const useUpsert = <T = unknown>(
     setResult(RD.pending);
     pipe(
       supabase,
-      TE.fromOption(() => 'You must use useUpsert from inside a Provider!'),
+      TE.fromOption(constant('You must use useUpsert from inside a Provider!')),
       TE.chainTaskK(supabase => async () => {
         const req = supabase.from<T>(tableName).upsert(values);
         return await (filter ? filter(req) : req);

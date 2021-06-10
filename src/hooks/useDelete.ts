@@ -1,7 +1,7 @@
 import { useSupabase } from './useSupabase';
 import * as RD from '@devexperts/remote-data-ts';
 import * as TE from 'fp-ts/TaskEither';
-import { pipe } from 'fp-ts/lib/function';
+import { constant, pipe } from 'fp-ts/lib/function';
 import { Filter } from '../types';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
@@ -22,7 +22,7 @@ export const useDelete = <T = unknown>(
     setResult(RD.pending);
     pipe(
       supabase,
-      TE.fromOption(() => 'You must use useDelete from inside a Provider!'),
+      TE.fromOption(constant('You must use useDelete from inside a Provider!')),
       TE.chainTaskK(supabase => async () =>
         await filter(supabase.from<T>(tableName).delete())
       ),

@@ -1,6 +1,6 @@
 import { useSupabase } from './useSupabase';
 import * as TE from 'fp-ts/TaskEither';
-import { pipe } from 'fp-ts/lib/function';
+import { constant, pipe } from 'fp-ts/lib/function';
 import { useEffect } from 'react';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as RD from '@devexperts/remote-data-ts';
@@ -24,7 +24,7 @@ export const useSingle = <T = unknown>(
   useEffect(() => {
     pipe(
       supabase,
-      TE.fromOption(() => 'You must use useSingle with a Provider!'),
+      TE.fromOption(constant('You must use useSingle with a Provider!')),
       TE.chainTaskK(supabase => async () => {
         const req = supabase
           .from<T>(tableName)
