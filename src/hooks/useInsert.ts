@@ -9,6 +9,37 @@ import { promiseLikeToTask, queryToTE } from '../utils';
 
 /**
  * Inserts data into a supabase table.
+ * @example
+ * ```tsx
+ * const [result, execute] = useInsert<Foo>("foo");
+ *
+ * pipe(
+ *   result,
+ *   RD.fold(
+ *     () => (
+ *       <button
+ *         onClick={() =>
+ *           execute({
+ *             bar: "baz",
+ *           })
+ *         }
+ *       >
+ *         Click me
+ *       </button>
+ *     ),
+ *     () => <div>Loading...</div>,
+ *     (e) => <div>Error {e}</div>,
+ *     (rows) => (
+ *       <div>
+ *         Inserted
+ *         {rows.map((row) => (
+ *           <div key={row.id}>{row.bar}</div>
+ *         ))}
+ *       </div>
+ *     )
+ *   )
+ * );
+ * ```
  * @param tableName - The name of the table you want to insert into
  * @param eq - An Eq for your data type
  * @returns The result of the request and a function to execute the insertion
