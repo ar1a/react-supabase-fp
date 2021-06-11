@@ -6,18 +6,20 @@ import { constant, flow, identity, pipe } from 'fp-ts/lib/function';
 import { Filter } from '../types';
 import { promiseLikeToTask, queryToTE } from '../utils';
 
+/**
+ * A hook to upsert into a supabase table
+ * @param tableName - The table name to upsert into
+ * @returns The rows that were updated
+ */
 export const useUpsert = <T = unknown>(
   tableName: string
 ): [
-  RD.RemoteData<string, T | T[]>,
+  RD.RemoteData<string, T[]>,
   (values: Partial<T> | Partial<T>[], filter?: Filter<T>) => Promise<void>
 ] => {
   const supabase = useSupabase();
 
-  // TODO: Figure out a way to do useStable/Eq for T | T[]
-  const [result, setResult] = useState<RD.RemoteData<string, T | T[]>>(
-    RD.initial
-  );
+  const [result, setResult] = useState<RD.RemoteData<string, T[]>>(RD.initial);
 
   const execute = async (
     values: Partial<T> | Partial<T>[],

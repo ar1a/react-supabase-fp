@@ -8,6 +8,12 @@ import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
 import { promiseLikeToTask, queryToTE } from '../utils';
 
+/**
+ * A hook to delete some rows from a supabase table
+ * @param tableName - The table name to update inside of
+ * @param eq - An Eq for your data type
+ * @returns A list of rows that were deleted, and the function to delete them
+ */
 export const useUpdate = <T = unknown>(
   tableName: string,
   eq: E.Eq<T[]> = E.eqStrict

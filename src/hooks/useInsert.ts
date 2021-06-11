@@ -7,6 +7,12 @@ import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
 import { promiseLikeToTask, queryToTE } from '../utils';
 
+/**
+ * A hook to insert data into a supabase table
+ * @param tableName - The name of the table you want to insert into
+ * @param eq - An Eq for your data type
+ * @returns The result of the request and a function to execute the insertion
+ */
 export const useInsert = <T = unknown>(
   tableName: string,
   eq: E.Eq<T[]> = E.eqStrict

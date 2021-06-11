@@ -100,9 +100,14 @@
 					<div class="tsd-signature tsd-kind-icon">Filter&lt;Data&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PostgrestFilterBuilder</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">PostgrestFilterBuilder</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/types.ts#L3">types.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/types.ts#L6">types.ts:6</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A function that takes a query and filters it</p>
+						</div>
+					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
@@ -140,9 +145,14 @@
 					<div class="tsd-signature tsd-kind-icon">Provider<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Provider</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/context/context.ts#L6">context/context.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/context/context.ts#L12">context/context.ts:12</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A provider for <a href="modules.html#supabasecontext">SupabaseContext</a></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="supabasecontext" class="tsd-anchor"></a>
@@ -150,9 +160,14 @@
 					<div class="tsd-signature tsd-kind-icon">Supabase<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Context</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/context/context.ts#L4">context/context.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/context/context.ts#L7">context/context.ts:7</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The context that contains the Supabase Client</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -167,9 +182,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/hooks/useDelete.ts#L11">hooks/useDelete.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useDelete.ts#L17">hooks/useDelete.ts:17</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Hook to delete data from a supabase table</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -180,12 +200,19 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tableName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the table you want to delete from</p>
+									</div>
 								</li>
 								<li>
 									<h5>eq: <span class="tsd-signature-type">Eq</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Eq to compare your type</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">RemoteData</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>filter<span class="tsd-signature-symbol">: </span><a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></h4>
+							<p>The result of the request, and a function to make the request</p>
 						</li>
 					</ul>
 				</section>
@@ -199,9 +226,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/hooks/useFilter.ts#L4">hooks/useFilter.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useFilter.ts#L10">hooks/useFilter.ts:10</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p> A hook to create a filter for use in other hooks</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -212,9 +244,15 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>filter: <a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A function that filters your query</p>
+									</div>
 								</li>
 								<li>
 									<h5>deps: <span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An array of deps to regenerate your <code>filter</code></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -231,9 +269,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/hooks/useInsert.ts#L10">hooks/useInsert.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useInsert.ts#L16">hooks/useInsert.ts:16</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook to insert data into a supabase table</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -244,12 +287,19 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tableName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name of the table you want to insert into</p>
+									</div>
 								</li>
 								<li>
 									<h5>eq: <span class="tsd-signature-type">Eq</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An Eq for your data type</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">RemoteData</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></h4>
+							<p>The result of the request and a function to execute the insertion</p>
 						</li>
 					</ul>
 				</section>
@@ -263,9 +313,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/hooks/useSingle.ts#L12">hooks/useSingle.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useSingle.ts#L20">hooks/useSingle.ts:20</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook to get a single row from a supabase table</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -276,18 +331,31 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tableName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The table name to get a row from</p>
+									</div>
 								</li>
 								<li>
 									<h5>selectArgs: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;*&#x27;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Arguments for a select query</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> filter: <a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A filter for your query</p>
+									</div>
 								</li>
 								<li>
 									<h5>eq: <span class="tsd-signature-type">Eq</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An Eq for your data type</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">RemoteData</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A single row</p>
 						</li>
 					</ul>
 				</section>
@@ -301,10 +369,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/hooks/useSupabase.ts#L6">hooks/useSupabase.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useSupabase.ts#L10">hooks/useSupabase.ts:10</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook to get the current supabase client</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Option</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A <code>SupabaseClient</code>, if it exists</p>
 						</li>
 					</ul>
 				</section>
@@ -318,9 +392,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/hooks/useTable.ts#L13">hooks/useTable.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useTable.ts#L21">hooks/useTable.ts:21</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook to get many rows from a supabase table</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -331,18 +410,31 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tableName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The table name to get rows from</p>
+									</div>
 								</li>
 								<li>
 									<h5>selectArgs: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;*&#x27;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Arguments for a select query</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> filter: <a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A filter for your query</p>
+									</div>
 								</li>
 								<li>
 									<h5>eq: <span class="tsd-signature-type">Eq</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An Eq for your data type</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">RemoteData</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Rows that match your filter, or all rows if there is no filter</p>
 						</li>
 					</ul>
 				</section>
@@ -356,9 +448,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/hooks/useUpdate.ts#L11">hooks/useUpdate.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useUpdate.ts#L17">hooks/useUpdate.ts:17</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook to delete some rows from a supabase table</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -369,12 +466,19 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tableName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The table name to update inside of</p>
+									</div>
 								</li>
 								<li>
 									<h5>eq: <span class="tsd-signature-type">Eq</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An Eq for your data type</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">RemoteData</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, filter<span class="tsd-signature-symbol">: </span><a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></h4>
+							<p>A list of rows that were deleted, and the function to delete them</p>
 						</li>
 					</ul>
 				</section>
@@ -382,15 +486,20 @@
 					<a name="useupsert" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> use<wbr>Upsert</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">use<wbr>Upsert&lt;T&gt;<span class="tsd-signature-symbol">(</span>tableName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">RemoteData</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, filter<span class="tsd-signature-symbol">?: </span><a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></li>
+						<li class="tsd-signature tsd-kind-icon">use<wbr>Upsert&lt;T&gt;<span class="tsd-signature-symbol">(</span>tableName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">RemoteData</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, filter<span class="tsd-signature-symbol">?: </span><a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/hooks/useUpsert.ts#L9">hooks/useUpsert.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useUpsert.ts#L14">hooks/useUpsert.ts:14</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook to upsert into a supabase table</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -401,9 +510,13 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tableName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The table name to upsert into</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">RemoteData</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, filter<span class="tsd-signature-symbol">?: </span><a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">RemoteData</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, filter<span class="tsd-signature-symbol">?: </span><a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></h4>
+							<p>The rows that were updated</p>
 						</li>
 					</ul>
 				</section>
@@ -417,10 +530,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/hooks/useUser.ts#L6">hooks/useUser.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useUser.ts#L10">hooks/useUser.ts:10</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook to return the current logged in user</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Option</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The logged in user, or <code>None</code> if there is none logged in</p>
 						</li>
 					</ul>
 				</section>
@@ -434,10 +553,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/02be728/src/hooks/useUser.ts#L15">hooks/useUser.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useUser.ts#L22">hooks/useUser.ts:22</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook to check if a user is logged in</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>true if the user is logged in</p>
 						</li>
 					</ul>
 				</section>

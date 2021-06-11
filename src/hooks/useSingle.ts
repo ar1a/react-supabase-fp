@@ -9,6 +9,14 @@ import * as E from 'fp-ts/Eq';
 import { Filter } from '../types';
 import { promiseLikeToTask, queryToTE } from '../utils';
 
+/**
+ * A hook to get a single row from a supabase table
+ * @param tableName - The table name to get a row from
+ * @param selectArgs - Arguments for a select query
+ * @param filter - A filter for your query
+ * @param eq - An Eq for your data type
+ * @returns A single row
+ */
 export const useSingle = <T = unknown>(
   tableName: string,
   selectArgs = '*',

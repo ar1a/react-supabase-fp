@@ -10,6 +10,14 @@ import * as E from 'fp-ts/Eq';
 import { Filter } from '../types';
 import { promiseLikeToTask, queryToTE } from '../utils';
 
+/**
+ * A hook to get many rows from a supabase table
+ * @param tableName - The table name to get rows from
+ * @param selectArgs - Arguments for a select query
+ * @param filter - A filter for your query
+ * @param eq - An Eq for your data type
+ * @returns Rows that match your filter, or all rows if there is no filter
+ */
 export const useTable = <T = unknown>(
   tableName: string,
   selectArgs = '*',
