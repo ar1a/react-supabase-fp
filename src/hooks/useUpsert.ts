@@ -8,6 +8,30 @@ import { promiseLikeToTask, queryToTE } from '../utils';
 
 /**
  * Upserts into a supabase table.
+ * @example
+ * ```tsx
+ * const filter = useFilter<Foo>((query) => query.eq("id", "1"));
+ * const [result, execute] = useUpsert<Foo>("foo");
+ *
+ * pipe(
+ *   result,
+ *   RD.fold(
+ *     () => <button onClick={() => execute({ bar: "baz" }, filter)}></button>,
+ *     () => <div>Loading...</div>,
+ *     (e) => <div>Error {e}</div>,
+ *     (rows) => (
+ *       <div>
+ *         Updated
+ *         {rows.map((row) => (
+ *           <div key={row.id}>
+ *             {row.id} - {row.bar}
+ *           </div>
+ *         ))}
+ *       </div>
+ *     )
+ *   )
+ * );
+ * ```
  * @param tableName - The table name to upsert into
  * @returns The rows that were updated
  */
