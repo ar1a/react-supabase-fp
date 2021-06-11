@@ -17,6 +17,8 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
-  rules: {},
+  plugins: ['react', '@typescript-eslint', 'eslint-plugin-tsdoc'],
+  rules: {
+    'tsdoc/syntax': 'warn',
+  },
 };

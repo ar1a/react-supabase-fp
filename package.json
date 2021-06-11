@@ -17,7 +17,8 @@
     "lint": "eslint src",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "docs": "typedoc src/index.ts"
   },
   "peerDependencies": {
     "@devexperts/remote-data-ts": "^2.0.5",
@@ -56,12 +57,14 @@
     "@typescript-eslint/parser": "^4.26.1",
     "eslint": "^7.28.0",
     "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-tsdoc": "^0.2.14",
     "husky": "^6.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "size-limit": "^4.11.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.2.0",
+    "typedoc": "^0.20.36",
     "typescript": "^4.3.2"
   },
   "dependencies": {
