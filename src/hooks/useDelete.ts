@@ -9,10 +9,10 @@ import * as E from 'fp-ts/Eq';
 import { promiseLikeToTask, queryToTE } from '../utils';
 
 /**
- * Hook to delete data from a supabase table
+ * Deletes data from a supabase table.
  * @param tableName - Name of the table you want to delete from
  * @param eq - Eq to compare your type
- * @returns The result of the request, and a function to make the request
+ * @returns A list of rows that were deleted, and the function to delete them
  */
 export const useDelete = <T = unknown>(
   tableName: string,

@@ -7,7 +7,7 @@ import { Filter } from '../types';
 import { promiseLikeToTask, queryToTE } from '../utils';
 
 /**
- * A hook to upsert into a supabase table
+ * Upserts into a supabase table.
  * @param tableName - The table name to upsert into
  * @returns The rows that were updated
  */

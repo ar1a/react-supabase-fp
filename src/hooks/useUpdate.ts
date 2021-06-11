@@ -9,10 +9,10 @@ import * as E from 'fp-ts/Eq';
 import { promiseLikeToTask, queryToTE } from '../utils';
 
 /**
- * A hook to delete some rows from a supabase table
+ * Updates some rows from a supabase table.
  * @param tableName - The table name to update inside of
  * @param eq - An Eq for your data type
- * @returns A list of rows that were deleted, and the function to delete them
+ * @returns The rows that were updated, and a function to execute the update.
  */
 export const useUpdate = <T = unknown>(
   tableName: string,

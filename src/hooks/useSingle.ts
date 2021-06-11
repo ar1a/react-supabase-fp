@@ -10,7 +10,7 @@ import { Filter } from '../types';
 import { promiseLikeToTask, queryToTE } from '../utils';
 
 /**
- * A hook to get a single row from a supabase table
+ * Gets a single row from a supabase table.
  * @param tableName - The table name to get a row from
  * @param selectArgs - Arguments for a select query
  * @param filter - A filter for your query

@@ -11,7 +11,7 @@ import { Filter } from '../types';
 import { promiseLikeToTask, queryToTE } from '../utils';
 
 /**
- * A hook to get many rows from a supabase table
+ * Gets many rows from a supabase table.
  * @param tableName - The table name to get rows from
  * @param selectArgs - Arguments for a select query
  * @param filter - A filter for your query

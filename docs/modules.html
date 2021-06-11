@@ -100,7 +100,7 @@
 					<div class="tsd-signature tsd-kind-icon">Filter&lt;Data&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PostgrestFilterBuilder</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">PostgrestFilterBuilder</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/types.ts#L6">types.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/types.ts#L6">types.ts:6</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -145,13 +145,27 @@
 					<div class="tsd-signature tsd-kind-icon">Provider<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Provider</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/context/context.ts#L12">context/context.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/context/context.ts#L25">context/context.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>A provider for <a href="modules.html#supabasecontext">SupabaseContext</a></p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>example</dt>
+							<dd><pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createClient</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@supabase/supabase-js&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #795E26">createClient</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;url&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;anonKey&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #AF00DB">return</span><span style="color: #000000"> (</span>
+<span style="color: #000000">  &lt;</span><span style="color: #001080">Provider</span><span style="color: #000000"> </span><span style="color: #001080">value</span><span style="color: #000000">={</span><span style="color: #001080">client</span><span style="color: #000000">}&gt;</span>
+<span style="color: #000000">    &lt;</span><span style="color: #001080">Consumer</span><span style="color: #000000"> /&gt;</span>
+<span style="color: #000000">  &lt;/</span><span style="color: #001080">Provider</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">);</span>
+</code></pre>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
@@ -160,13 +174,18 @@
 					<div class="tsd-signature tsd-kind-icon">Supabase<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Context</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/context/context.ts#L7">context/context.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/context/context.ts#L8">context/context.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The context that contains the Supabase Client</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="modules.html#provider">Provider</a> for usage</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -182,7 +201,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useDelete.ts#L17">hooks/useDelete.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/hooks/useDelete.ts#L17">hooks/useDelete.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,13 +245,19 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useFilter.ts#L10">hooks/useFilter.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/hooks/useFilter.ts#L16">hooks/useFilter.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p> A hook to create a filter for use in other hooks</p>
+									<p> Creates a react-safe filter for use in other hooks.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">filter</span><span style="color: #000000"> = </span><span style="color: #795E26">useFilter</span><span style="color: #000000">&lt;</span><span style="color: #267F99">Foo</span><span style="color: #000000">&gt;(</span><span style="color: #001080">query</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">query</span><span style="color: #000000">.</span><span style="color: #795E26">eq</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;id&#039;</span><span style="color: #000000">, </span><span style="color: #098658">1</span><span style="color: #000000">));</span>
+</code></pre>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -256,6 +281,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="modules.html#filter" class="tsd-signature-type" data-tsd-kind="Type alias">Filter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A filter</p>
 						</li>
 					</ul>
 				</section>
@@ -269,12 +295,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useInsert.ts#L16">hooks/useInsert.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/hooks/useInsert.ts#L16">hooks/useInsert.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook to insert data into a supabase table</p>
+									<p>Insert data into a supabase table.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -313,12 +339,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useSingle.ts#L20">hooks/useSingle.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/hooks/useSingle.ts#L20">hooks/useSingle.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook to get a single row from a supabase table</p>
+									<p>Gets a single row from a supabase table.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -369,12 +395,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useSupabase.ts#L10">hooks/useSupabase.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/hooks/useSupabase.ts#L10">hooks/useSupabase.ts:10</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook to get the current supabase client</p>
+									<p>Gets the current supabase client.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Option</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -392,12 +418,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useTable.ts#L21">hooks/useTable.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/hooks/useTable.ts#L21">hooks/useTable.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook to get many rows from a supabase table</p>
+									<p>Gets many rows from a supabase table.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -448,12 +474,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useUpdate.ts#L17">hooks/useUpdate.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/hooks/useUpdate.ts#L17">hooks/useUpdate.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook to delete some rows from a supabase table</p>
+									<p>Deletes some rows from a supabase table.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -492,12 +518,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useUpsert.ts#L14">hooks/useUpsert.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/hooks/useUpsert.ts#L14">hooks/useUpsert.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook to upsert into a supabase table</p>
+									<p>Upserts into a supabase table.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -530,16 +556,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useUser.ts#L10">hooks/useUser.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/hooks/useUser.ts#L9">hooks/useUser.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook to return the current logged in user</p>
+									<p>Returns the current logged in user, or <code>None</code> if no one is logged in</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Option</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The logged in user, or <code>None</code> if there is none logged in</p>
 						</li>
 					</ul>
 				</section>
@@ -553,16 +578,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/e85f40d/src/hooks/useUser.ts#L22">hooks/useUser.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/6b24ab3/src/hooks/useUser.ts#L20">hooks/useUser.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook to check if a user is logged in</p>
+									<p>Returns <code>true</code> if a user is logged in</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>true if the user is logged in</p>
 						</li>
 					</ul>
 				</section>
