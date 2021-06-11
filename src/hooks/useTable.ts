@@ -12,6 +12,25 @@ import { promiseLikeToTask, queryToTE } from '../utils';
 
 /**
  * Gets many rows from a supabase table.
+ * @example
+ * ```tsx
+ * const filter = useFilter<Foo>((query) => query.gt("id", "5"));
+ * const result = useTable<Foo>("foo", "id, bar", filter);
+ * pipe(
+ *   result,
+ *   RD.fold3(
+ *     () => <div>Loading...</div>,
+ *     (e) => <div>Error {e}</div>,
+ *     (rows) => (
+ *       <div>
+ *         {rows.map((row) => (
+ *           <div key={row.id}>{row.bar}</div>
+ *         ))}
+ *       </div>
+ *     )
+ *   )
+ * );
+ * ```
  * @param tableName - The table name to get rows from
  * @param selectArgs - Arguments for a select query
  * @param filter - A filter for your query
