@@ -11,6 +11,13 @@ import { promiseLikeToTask, queryToTE } from '../utils';
 
 /**
  * Gets a single row from a supabase table.
+ *
+ * @example
+ * ```ts
+ * const filter = useFilter<Foo>(query => query.eq('id', 2));
+ * const result = useSingle<Foo>("foo", "id, bar", filter);
+ * ```
+ *
  * @param tableName - The table name to get a row from
  * @param selectArgs - Arguments for a select query
  * @param filter - A filter for your query
