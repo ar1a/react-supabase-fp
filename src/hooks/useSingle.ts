@@ -14,8 +14,17 @@ import { promiseLikeToTask, queryToTE } from '../utils';
  *
  * @example
  * ```ts
- * const filter = useFilter<Foo>(query => query.eq('id', 2));
- * const result = useSingle<Foo>("foo", "id, bar", filter);
+ * const filter = useFilter<Foo>((query) => query.gt("id", "5"));
+ * const result = useSingle<Foo>("foo", "*", filter);
+ *
+ * pipe(
+ *   result,
+ *   RD.fold3(
+ *     () => <div>Loading...</div>,
+ *     (e) => <div>Error {e}</div>,
+ *     (row) => <div>{row.bar}</div>
+ *   )
+ * );
  * ```
  *
  * @param tableName - The table name to get a row from
