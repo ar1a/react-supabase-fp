@@ -10,6 +10,28 @@ import { promiseLikeToTask, queryToTE } from '../utils';
 
 /**
  * Deletes data from a supabase table.
+ * @example
+ * ```tsx
+ * const filter = useFilter<Foo>((query) => query.gt("id", "5"));
+ * const [result, execute] = useDelete<Foo>("foo");
+ *
+ * pipe(
+ *   result,
+ *   RD.fold(
+ *     () => <button onClick={() => execute(filter)}>Click me</button>,
+ *     () => <div>Loading...</div>,
+ *     (e) => <div>Error {e}</div>,
+ *     (rows) => (
+ *       <div>
+ *         Deleted
+ *         {rows.map((row) => (
+ *           <div key={row.id}>{row.bar}</div>
+ *         ))}
+ *       </div>
+ *     )
+ *   )
+ * );
+ * ```
  * @param tableName - Name of the table you want to delete from
  * @param eq - Eq to compare your type
  * @returns A list of rows that were deleted, and the function to delete them

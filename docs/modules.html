@@ -100,7 +100,7 @@
 					<div class="tsd-signature tsd-kind-icon">Filter&lt;Data&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PostgrestFilterBuilder</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">PostgrestFilterBuilder</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/types.ts#L6">types.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/types.ts#L6">types.ts:6</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -145,7 +145,7 @@
 					<div class="tsd-signature tsd-kind-icon">Provider<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Provider</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/context/context.ts#L25">context/context.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/context/context.ts#L25">context/context.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -174,7 +174,7 @@
 					<div class="tsd-signature tsd-kind-icon">Supabase<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Context</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/context/context.ts#L8">context/context.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/context/context.ts#L8">context/context.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -201,13 +201,37 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/hooks/useDelete.ts#L17">hooks/useDelete.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/hooks/useDelete.ts#L39">hooks/useDelete.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Deletes data from a supabase table.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-tsx"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">filter</span><span style="color: #000000"> = </span><span style="color: #795E26">useFilter</span><span style="color: #000000">&lt;</span><span style="color: #267F99">Foo</span><span style="color: #000000">&gt;((</span><span style="color: #001080">query</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">query</span><span style="color: #000000">.</span><span style="color: #795E26">gt</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;id&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;5&quot;</span><span style="color: #000000">));</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> [</span><span style="color: #0070C1">result</span><span style="color: #000000">, </span><span style="color: #0070C1">execute</span><span style="color: #000000">] = </span><span style="color: #795E26">useDelete</span><span style="color: #000000">&lt;</span><span style="color: #267F99">Foo</span><span style="color: #000000">&gt;(</span><span style="color: #A31515">&quot;foo&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #795E26">pipe</span><span style="color: #000000">(</span>
+<span style="color: #000000">  </span><span style="color: #001080">result</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #0070C1">RD</span><span style="color: #000000">.</span><span style="color: #795E26">fold</span><span style="color: #000000">(</span>
+<span style="color: #000000">    () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #800000">&lt;button</span><span style="color: #000000"> </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #000000FF">() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000FF"> </span><span style="color: #795E26">execute</span><span style="color: #000000FF">(</span><span style="color: #001080">filter</span><span style="color: #000000FF">)</span><span style="color: #0000FF">}</span><span style="color: #800000">&gt;</span><span style="color: #000000">Click me</span><span style="color: #800000">&lt;/button&gt;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #800000">&lt;div&gt;</span><span style="color: #000000">Loading...</span><span style="color: #800000">&lt;/div&gt;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    (</span><span style="color: #001080">e</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #800000">&lt;div&gt;</span><span style="color: #000000">Error </span><span style="color: #0000FF">{</span><span style="color: #001080">e</span><span style="color: #0000FF">}</span><span style="color: #800000">&lt;/div&gt;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    (</span><span style="color: #001080">rows</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> (</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;div&gt;</span>
+<span style="color: #000000">        Deleted</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">{</span><span style="color: #001080">rows</span><span style="color: #000000FF">.</span><span style="color: #795E26">map</span><span style="color: #000000FF">((</span><span style="color: #001080">row</span><span style="color: #000000FF">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000FF"> (</span>
+<span style="color: #000000FF">          </span><span style="color: #800000">&lt;div</span><span style="color: #000000FF"> </span><span style="color: #FF0000">key</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #001080">row</span><span style="color: #000000FF">.</span><span style="color: #001080">id</span><span style="color: #0000FF">}</span><span style="color: #800000">&gt;</span><span style="color: #0000FF">{</span><span style="color: #001080">row</span><span style="color: #000000FF">.</span><span style="color: #001080">bar</span><span style="color: #0000FF">}</span><span style="color: #800000">&lt;/div&gt;</span>
+<span style="color: #000000FF">        ))</span><span style="color: #0000FF">}</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;/div&gt;</span>
+<span style="color: #000000">    )</span>
+<span style="color: #000000">  )</span>
+<span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -245,7 +269,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/hooks/useFilter.ts#L16">hooks/useFilter.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/hooks/useFilter.ts#L16">hooks/useFilter.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -295,7 +319,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/hooks/useInsert.ts#L16">hooks/useInsert.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/hooks/useInsert.ts#L16">hooks/useInsert.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -339,7 +363,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/hooks/useSingle.ts#L27">hooks/useSingle.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/hooks/useSingle.ts#L27">hooks/useSingle.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -402,7 +426,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/hooks/useSupabase.ts#L10">hooks/useSupabase.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/hooks/useSupabase.ts#L10">hooks/useSupabase.ts:10</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -425,7 +449,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/hooks/useTable.ts#L40">hooks/useTable.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/hooks/useTable.ts#L40">hooks/useTable.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -502,7 +526,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/hooks/useUpdate.ts#L17">hooks/useUpdate.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/hooks/useUpdate.ts#L17">hooks/useUpdate.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -546,7 +570,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/hooks/useUpsert.ts#L14">hooks/useUpsert.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/hooks/useUpsert.ts#L14">hooks/useUpsert.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -584,7 +608,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/hooks/useUser.ts#L9">hooks/useUser.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/hooks/useUser.ts#L9">hooks/useUser.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -606,7 +630,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/3178715/src/hooks/useUser.ts#L20">hooks/useUser.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/ar1a/react-supabase-fp/blob/cbb21ca/src/hooks/useUser.ts#L20">hooks/useUser.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
