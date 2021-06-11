@@ -4,7 +4,7 @@ import * as TE from 'fp-ts/TaskEither';
 import { useState } from 'react';
 import { constant, flow, identity, pipe } from 'fp-ts/lib/function';
 import { Filter } from '../types';
-import { promiseLikeToPromise, queryToTE } from '../utils';
+import { promiseLikeToTask, queryToTE } from '../utils';
 
 export const useUpsert = <T = unknown>(
   tableName: string
@@ -29,8 +29,7 @@ export const useUpsert = <T = unknown>(
       TE.fromOption(constant('You must use useUpsert from inside a Provider!')),
       TE.map(supabase => supabase.from<T>(tableName).upsert(values)),
       TE.map(filter || identity),
-      TE.map(promiseLikeToPromise),
-      TE.chainTaskK(constant),
+      TE.chainTaskK(promiseLikeToTask),
       TE.chain(queryToTE)
     )().then(flow(RD.fromEither, setResult));
   };

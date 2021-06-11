@@ -1,4 +1,5 @@
 import * as TE from 'fp-ts/TaskEither';
+import * as T from 'fp-ts/Task';
 
 // ! This is from Postgrest-js but they don't export it????
 type PostgrestError = {
@@ -23,3 +24,7 @@ export const queryToTE = <T>({
 export const promiseLikeToPromise = <T>(
   promiseLike: PromiseLike<T>
 ): Promise<T> => Promise.resolve(promiseLike);
+
+export const promiseLikeToTask = <A>(
+  promiseLike: PromiseLike<A>
+): T.Task<A> => () => promiseLikeToPromise(promiseLike);

@@ -8,7 +8,7 @@ import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
 import { Filter } from '../types';
-import { promiseLikeToPromise, queryToTE } from '../utils';
+import { promiseLikeToTask, queryToTE } from '../utils';
 
 export const useTable = <T = unknown>(
   tableName: string,
@@ -29,8 +29,7 @@ export const useTable = <T = unknown>(
       TE.fromOption(constant('You must use useTable with a Provider!')),
       TE.map(supabase => supabase.from<T>(tableName).select(selectArgs)),
       TE.map(filter || identity),
-      TE.map(promiseLikeToPromise),
-      TE.chainTaskK(constant),
+      TE.chainTaskK(promiseLikeToTask),
       TE.chain(queryToTE)
     )().then(flow(RD.fromEither, setResult));
   }, []);

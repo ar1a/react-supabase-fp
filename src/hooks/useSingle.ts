@@ -7,7 +7,7 @@ import * as RD from '@devexperts/remote-data-ts';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
 import { Filter } from '../types';
-import { promiseLikeToPromise, queryToTE } from '../utils';
+import { promiseLikeToTask, queryToTE } from '../utils';
 
 export const useSingle = <T = unknown>(
   tableName: string,
@@ -34,8 +34,7 @@ export const useSingle = <T = unknown>(
       ),
       TE.map(filter || identity),
       TE.map(x => x.single()),
-      TE.map(promiseLikeToPromise),
-      TE.chainTaskK(constant),
+      TE.chainTaskK(promiseLikeToTask),
       TE.chain(queryToTE)
     )().then(flow(RD.fromEither, setResult));
   }, []);

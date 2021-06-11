@@ -6,7 +6,7 @@ import { Filter } from '../types';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
-import { promiseLikeToPromise, queryToTE } from '../utils';
+import { promiseLikeToTask, queryToTE } from '../utils';
 
 export const useUpdate = <T = unknown>(
   tableName: string,
@@ -29,8 +29,7 @@ export const useUpdate = <T = unknown>(
       TE.fromOption(constant('You must use useUpdate from inside a Provider!')),
       TE.map(supabase => supabase.from<T>(tableName).update(values)),
       TE.map(filter),
-      TE.map(promiseLikeToPromise),
-      TE.chainTaskK(constant),
+      TE.chainTaskK(promiseLikeToTask),
       TE.chain(queryToTE)
     )().then(flow(RD.fromEither, setResult));
   };
