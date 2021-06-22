@@ -5,7 +5,9 @@ TODO LIST:
 - [x] README
 - [x] Flesh out example project, people don't know how to use fp-ts really.
 - [x] Package.json (description, license)
-- [ ] Host docs on github pages? github actions??? how do people do this
+- [x] Host docs on github pages? github actions??? how do people do this
+- [ ] useSignIn
+- [ ] useSignOut
 
 # Nice to have
 
