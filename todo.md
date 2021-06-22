@@ -5,7 +5,7 @@ TODO LIST:
 - README
 - Flesh out example project, people don't know how to use fp-ts really.
 - Package.json (description, license)
-- Host docs on gist? github actions??? how do people do this
+- Host docs on github pages? github actions??? how do people do this
 
 # Nice to have
 

@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Provider, useFilter, useInsert } from '../.';
+import { Provider, useFilter, useInsert, useTable } from '../.';
 import { createClient } from '@supabase/supabase-js';
 import * as RD from '@devexperts/remote-data-ts';
 import { constant, pipe } from 'fp-ts/lib/function';
@@ -21,29 +21,29 @@ const App = () => {
 };
 
 const Consumer = () => {
-  const filter = useFilter<definitions['test']>(query => query.eq('id', 2));
-  const [result, execute] = useInsert<definitions['test']>('test');
+  const filter = useFilter<definitions['test']>(query =>
+    query.contains('text', 'production')
+  );
+  const result = useTable<definitions['test']>('test', '*', filter);
+
   return pipe(
     result,
-    RD.fold(
-      constant(
-        <div>
-          <button
-            onClick={() =>
-              execute([
-                { text: 'test!!', optional: Math.floor(Math.random() * 8) },
-              ])
-            }
-          >
-            CREATE ID n
-          </button>
-        </div>
-      ),
+    RD.fold3(
       constant(<div>Loading...</div>),
-      e => <div>Fucken failed: {e}</div>,
-      result => {
-        return <div>Bye bye :D</div>;
-      }
+      e => <div>Query failed: {e}</div>,
+      result => (
+        <>
+          <h1>Production text</h1>
+          <div>
+            {result.map(row => (
+              <div key={row.id}>
+                <h2>{row.text}</h2>
+                {row.optional && <p>{row.optional}</p>}
+              </div>
+            ))}
+          </div>
+        </>
+      )
     )
   );
 };
