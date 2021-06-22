@@ -1,18 +1,18 @@
-import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Provider, useFilter, useInsert, useTable } from '../.';
-import { createClient } from '@supabase/supabase-js';
 import * as RD from '@devexperts/remote-data-ts';
+import { useState, ReactEventHandler } from 'react';
+import { createClient } from '@supabase/supabase-js';
 import { constant, pipe } from 'fp-ts/lib/function';
 import { definitions } from './types/supabase';
+import { Provider, useInsert, useTable } from '../.';
+
+const client = createClient(
+  'https://uxtxhzqpveqocjohidmf.supabase.co',
+  process.env.SUPABASE_ANON_KEY!
+);
 
 const App = () => {
-  const client = createClient(
-    'https://uxtxhzqpveqocjohidmf.supabase.co',
-    process.env.SUPABASE_ANON_KEY!
-  );
-
   return (
     <Provider value={client}>
       <Consumer />
@@ -21,10 +21,15 @@ const App = () => {
 };
 
 const Consumer = () => {
-  const filter = useFilter<definitions['test']>(query =>
-    query.contains('text', 'production')
-  );
-  const result = useTable<definitions['test']>('test', '*', filter);
+  const result = useTable<definitions['test']>('test');
+  const [insertResult, execute] = useInsert<definitions['test']>('test');
+  const [input, setInput] = useState('');
+
+  const onSubmit: ReactEventHandler<HTMLFormElement> = e => {
+    e.preventDefault();
+    execute({ text: input }).then(() => setInput(''));
+    // TODO: Use reexecute to rerender page
+  };
 
   return pipe(
     result,
@@ -33,11 +38,20 @@ const Consumer = () => {
       e => <div>Query failed: {e}</div>,
       result => (
         <>
-          <h1>Production text</h1>
+          <h1>Rows</h1>
+          <form onSubmit={onSubmit}>
+            Create a new entry:{' '}
+            <input
+              type="text"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              disabled={RD.isPending(insertResult)}
+            />
+          </form>
           <div>
             {result.map(row => (
               <div key={row.id}>
-                <h2>{row.text}</h2>
+                <h3>{row.text}</h3>
                 {row.optional && <p>{row.optional}</p>}
               </div>
             ))}

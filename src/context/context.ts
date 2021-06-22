@@ -8,7 +8,7 @@ import { createContext } from 'react';
 export const SupabaseContext = createContext<SupabaseClient | null>(null);
 
 /**
- * A provider for {@link SupabaseContext}
+ * A provider for {@link SupabaseContext}. Everything must be wrapped in this.
  * @example
  * ```ts
  * import { createClient } from '@supabase/supabase-js';

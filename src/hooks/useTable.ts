@@ -51,6 +51,7 @@ export const useTable = <T = unknown>(
   );
 
   useEffect(() => {
+    // TODO: Make this a callback and add a re-execute function
     pipe(
       supabase,
       TE.fromOption(constant('You must use useTable with a Provider!')),

@@ -58,11 +58,11 @@ export const useInsert = <T = unknown>(
     RD.getEq(S.Eq, eq)
   );
 
-  const execute = async (values: Partial<T> | Partial<T>[]) => {
+  const execute = (values: Partial<T> | Partial<T>[]) => {
     setResult(RD.pending);
-    pipe(
+    return pipe(
       supabase,
-      TE.fromOption(constant('You must use useUpsert from inside a Provider!')),
+      TE.fromOption(constant('You must use useInsert from inside a Provider!')),
       TE.map(supabase => supabase.from<T>(tableName).insert(values)),
       TE.chainTaskK(promiseLikeToTask),
       TE.chain(queryToTE)

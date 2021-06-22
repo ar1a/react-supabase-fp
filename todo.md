@@ -2,10 +2,10 @@ TODO LIST:
 
 # For initial release
 
-- README
-- Flesh out example project, people don't know how to use fp-ts really.
-- Package.json (description, license)
-- Host docs on github pages? github actions??? how do people do this
+- [x] README
+- [x] Flesh out example project, people don't know how to use fp-ts really.
+- [ ] Package.json (description, license)
+- [ ] Host docs on github pages? github actions??? how do people do this
 
 # Nice to have
 
