@@ -9,7 +9,7 @@ react-supabase-fp is a Typescript library for using
 [supabase](https://supabase.io) with React and
 [fp-ts](https://gcanti.github.io/fp-ts/).
 
-[Docs](#TODO)
+[Docs](https://ar1a.github.io/react-supabase-fp/)
 
 ## Installation
 
