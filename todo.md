@@ -6,8 +6,8 @@ TODO LIST:
 - [x] Flesh out example project, people don't know how to use fp-ts really.
 - [x] Package.json (description, license)
 - [x] Host docs on github pages? github actions??? how do people do this
-- [ ] useSignIn
-- [ ] useSignOut
+- [x] useSignIn
+- [x] useSignOut
 
 # Nice to have
 

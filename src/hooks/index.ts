@@ -8,3 +8,4 @@ export * from './useInsert';
 export * from './useUpdate';
 export * from './useUser';
 export * from './useSignIn';
+export * from './useSignOut';
