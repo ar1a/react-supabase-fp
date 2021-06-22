@@ -1,6 +1,13 @@
 TODO LIST:
 
-- at some point, create a README and docs
+# For initial release
+
+- README
+- Flesh out example project, people don't know how to use fp-ts really.
+- Package.json (description, license)
+- Host docs on gist? github actions??? how do people do this
+
+# Nice to have
 
 - storage stuff
 - useUpload
