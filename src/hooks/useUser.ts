@@ -29,17 +29,19 @@ const useAuthStateChange = (
 export const useUser = (): O.Option<User> => {
   const supabase = useSupabase();
   const [user, setUser] = useState<O.Option<User>>(O.none);
-  useEffect(() => {
-    pipe(
-      supabase,
-      O.chainNullableK(s => s.auth.session()),
-      O.chainNullableK(x => x.user),
-      setUser
-    );
-  }, []);
-  useAuthStateChange((_, session) => {
-    pipe(session?.user, O.fromNullable, setUser);
-  });
+  useEffect(
+    () =>
+      pipe(
+        supabase,
+        O.chainNullableK(s => s.auth.session()),
+        O.chainNullableK(x => x.user),
+        setUser
+      ),
+    []
+  );
+  useAuthStateChange((_, session) =>
+    pipe(session?.user, O.fromNullable, setUser)
+  );
   return user;
 };
 
