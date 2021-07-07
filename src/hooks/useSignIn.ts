@@ -60,7 +60,10 @@ export const useSignIn = (): [
                 x.session,
                 O.fromNullable,
                 x =>
-                  RD.fromOption(x, () => new Error('Did not return a session')),
+                  RD.fromOption(
+                    x,
+                    () => new Error('Did not return a session.')
+                  ),
                 setResult
               );
             }
