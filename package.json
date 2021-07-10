@@ -14,7 +14,7 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "eslint src",
-    "prepare": "tsdx build",
+    "prepare": "tsdx build; husky install",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "docs": "typedoc src/index.tsx",
@@ -24,11 +24,6 @@
     "@devexperts/remote-data-ts": "^2.0.5",
     "fp-ts": "^2.10.5",
     "react": ">=16"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
   },
   "prettier": {
     "printWidth": 80,
@@ -61,6 +56,8 @@
     }
   ],
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "@size-limit/preset-small-lib": "^4.11.0",
     "@types/react": "^17.0.9",
     "@types/react-dom": "^17.0.6",
@@ -69,7 +66,7 @@
     "eslint": "^7.28.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-tsdoc": "^0.2.14",
-    "husky": "^6.0.0",
+    "husky": "^7.0.1",
     "install-peers-cli": "^2.2.0",
     "react": ">=16",
     "react-dom": "^17.0.2",
