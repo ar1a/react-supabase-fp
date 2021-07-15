@@ -40,19 +40,22 @@ import { promiseLikeToTask, queryToTE } from '../utils';
  */
 export const useUpdate = <T = unknown>(
   tableName: string,
-  eq: E.Eq<T[]> = E.eqStrict
-): [
-  RD.RemoteData<string, T[]>,
+  eq: E.Eq<readonly T[]> = E.eqStrict
+): readonly [
+  RD.RemoteData<string, readonly T[]>,
   (values: Partial<T>, filter: Filter<T>) => Promise<void>
 ] => {
   const supabase = useSupabase();
 
-  const [result, setResult] = useStable<RD.RemoteData<string, T[]>>(
+  const [result, setResult] = useStable<RD.RemoteData<string, readonly T[]>>(
     RD.initial,
     RD.getEq(S.Eq, eq)
   );
 
-  const execute = async (values: Partial<T>, filter: Filter<T>) => {
+  const execute = async (
+    values: Partial<T>,
+    filter: Filter<T>
+  ): Promise<void> => {
     setResult(RD.pending);
     pipe(
       supabase,

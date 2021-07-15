@@ -15,7 +15,7 @@ import { Filter } from '../types';
  */
 export const useFilter = <Data = unknown>(
   filter: Filter<Data>,
-  deps: unknown[] = []
+  deps: readonly unknown[] = []
 ): Filter<Data> => {
   const callback = useCallback(filter, deps);
   return callback;

@@ -46,19 +46,23 @@ import { promiseLikeToTask, queryToTE } from '../utils';
  */
 export const useInsert = <T = unknown>(
   tableName: string,
-  eq: E.Eq<T[]> = E.eqStrict
-): [
-  RD.RemoteData<string, T[]>,
+  eq: E.Eq<readonly T[]> = E.eqStrict
+): readonly [
+  RD.RemoteData<string, readonly T[]>,
+  // eslint-disable-next-line functional/prefer-readonly-type
   (values: Partial<T> | Partial<T>[]) => Promise<void>
 ] => {
   const supabase = useSupabase();
 
-  const [result, setResult] = useStable<RD.RemoteData<string, T[]>>(
+  const [result, setResult] = useStable<RD.RemoteData<string, readonly T[]>>(
     RD.initial,
     RD.getEq(S.Eq, eq)
   );
 
-  const execute = (values: Partial<T> | Partial<T>[]) => {
+  const execute = (
+    // eslint-disable-next-line functional/prefer-readonly-type
+    values: Partial<T> | Partial<T>[]
+  ): Promise<void> => {
     setResult(RD.pending);
     return pipe(
       supabase,

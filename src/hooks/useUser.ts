@@ -1,3 +1,4 @@
+/* eslint-disable functional/no-return-void */
 import { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
 import { pipe } from 'fp-ts/lib/function';
 import * as O from 'fp-ts/Option';
@@ -6,7 +7,7 @@ import { useSupabase } from './useSupabase';
 
 const useAuthStateChange = (
   callback: (event: AuthChangeEvent, session: Session | null) => void
-) => {
+): void => {
   const supabase = useSupabase();
 
   useEffect(() => {

@@ -37,18 +37,22 @@ import { promiseLikeToTask, queryToTE } from '../utils';
  */
 export const useUpsert = <T = unknown>(
   tableName: string
-): [
-  RD.RemoteData<string, T[]>,
+): readonly [
+  RD.RemoteData<string, readonly T[]>,
+  // eslint-disable-next-line functional/prefer-readonly-type
   (values: Partial<T> | Partial<T>[], filter?: Filter<T>) => Promise<void>
 ] => {
   const supabase = useSupabase();
 
-  const [result, setResult] = useState<RD.RemoteData<string, T[]>>(RD.initial);
+  const [result, setResult] = useState<RD.RemoteData<string, readonly T[]>>(
+    RD.initial
+  );
 
   const execute = async (
+    // eslint-disable-next-line functional/prefer-readonly-type
     values: Partial<T> | Partial<T>[],
     filter?: Filter<T>
-  ) => {
+  ): Promise<void> => {
     setResult(RD.pending);
     pipe(
       supabase,

@@ -41,11 +41,11 @@ export const useTable = <T = unknown>(
   tableName: string,
   selectArgs = '*',
   filter?: Filter<T>,
-  eq: E.Eq<T[]> = E.eqStrict
-): RD.RemoteData<string, T[]> => {
+  eq: E.Eq<readonly T[]> = E.eqStrict
+): RD.RemoteData<string, readonly T[]> => {
   const supabase = useSupabase();
 
-  const [result, setResult] = useStable<RD.RemoteData<string, T[]>>(
+  const [result, setResult] = useStable<RD.RemoteData<string, readonly T[]>>(
     RD.pending,
     RD.getEq(S.Eq, eq)
   );

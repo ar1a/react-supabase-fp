@@ -38,16 +38,19 @@ import { promiseLikeToTask, queryToTE } from '../utils';
  */
 export const useDelete = <T = unknown>(
   tableName: string,
-  eq: E.Eq<T[]> = E.eqStrict
-): [RD.RemoteData<string, T[]>, (filter: Filter<T>) => Promise<void>] => {
+  eq: E.Eq<readonly T[]> = E.eqStrict
+): readonly [
+  RD.RemoteData<string, readonly T[]>,
+  (filter: Filter<T>) => Promise<void>
+] => {
   const supabase = useSupabase();
 
-  const [result, setResult] = useStable<RD.RemoteData<string, T[]>>(
+  const [result, setResult] = useStable<RD.RemoteData<string, readonly T[]>>(
     RD.initial,
     RD.getEq(S.Eq, eq)
   );
 
-  const execute = async (filter: Filter<T>) => {
+  const execute = async (filter: Filter<T>): Promise<void> => {
     setResult(RD.pending);
     pipe(
       supabase,

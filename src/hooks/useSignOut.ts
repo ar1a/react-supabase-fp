@@ -24,7 +24,7 @@ import { useSupabase } from './useSupabase';
  *
  * ```
  */
-export const useSignOut = (): [
+export const useSignOut = (): readonly [
   RD.RemoteData<Error, void>,
   () => Promise<void>
 ] => {

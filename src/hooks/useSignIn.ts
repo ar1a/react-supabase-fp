@@ -7,8 +7,8 @@ import { useCallback, useState } from 'react';
 import { pipe } from 'fp-ts/lib/function';
 
 export type UseSignInOptions = {
-  redirectTo?: string;
-  scopes?: string;
+  readonly redirectTo?: string;
+  readonly scopes?: string;
 };
 
 /**
@@ -32,7 +32,7 @@ export type UseSignInOptions = {
  *   );
  * ```
  */
-export const useSignIn = (): [
+export const useSignIn = (): readonly [
   RD.RemoteData<Error, Session>,
   (credentials: UserCredentials, options?: UseSignInOptions) => Promise<void>
 ] => {
