@@ -5,7 +5,9 @@ import { createContext } from 'react';
  * The context that contains the Supabase Client
  * @see {@link Provider} for usage
  */
-export const SupabaseContext = createContext<SupabaseClient | null>(null);
+export const SupabaseContext: React.Context<SupabaseClient | null> = createContext<SupabaseClient | null>(
+  null
+);
 
 /**
  * A provider for {@link SupabaseContext}. Everything must be wrapped in this.
