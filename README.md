@@ -17,7 +17,7 @@ react-supabase-fp is a Typescript library for using
 Install react-supabase-fp with `yarn` or `npm`:
 
 ```bash
-yarn add react-supabase-fp fp-ts @devexperts/remote-data-ts
+yarn add react-supabase-fp fp-ts @devexperts/remote-data-ts @supabase/supabase-js
 ```
 
 See also: [fp-ts](https://gcanti.github.io/fp-ts/) and [remote-data-ts](https://github.com/devexperts/remote-data-ts)
