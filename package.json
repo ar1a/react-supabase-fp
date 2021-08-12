@@ -70,7 +70,6 @@
     "eslint-plugin-tsdoc": "^0.2.14",
     "husky": "^7.0.1",
     "install-peers-cli": "^2.2.0",
-    "react": ">=16",
     "react-dom": "^17.0.2",
     "size-limit": "^4.11.0",
     "tsdx": "^0.14.1",
