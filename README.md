@@ -3,7 +3,7 @@
 ![](https://img.shields.io/bundlephobia/min/react-supabase-fp?label=bundle%20size)
 ![](https://img.shields.io/npm/dw/react-supabase-fp)
 ![](https://img.shields.io/npm/l/react-supabase-fp)
-![](https://img.shields.io/npm/v/react-supabase-fp)
+[![](https://img.shields.io/npm/v/react-supabase-fp)][npm]
 
 react-supabase-fp is a Typescript library for using
 [supabase](https://supabase.io) with React and
@@ -73,3 +73,5 @@ Please make sure to update tests as appropriate.
 ## License
 
 [ISC](https://choosealicense.com/licenses/isc/)
+
+[npm]: https://www.npmjs.com/package/react-supabase-fp
