@@ -17,8 +17,7 @@
     "prepare": "tsdx build; husky install",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "docs": "typedoc src/index.tsx",
-    "postinstall": "install-peers"
+    "docs": "typedoc src/index.tsx"
   },
   "peerDependencies": {
     "@devexperts/remote-data-ts": "^2.0.5",
@@ -69,7 +68,6 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-tsdoc": "^0.2.14",
     "husky": "^7.0.1",
-    "install-peers-cli": "^2.2.0",
     "react-dom": "^17.0.2",
     "size-limit": "^4.11.0",
     "tsdx": "^0.14.1",
