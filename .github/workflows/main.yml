@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
+      - name: Upgrade npm
+        run: npm install -g npm@latest
+
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
 
