@@ -34,19 +34,25 @@ See also: [fp-ts](https://gcanti.github.io/fp-ts/) and [remote-data-ts](https://
 ## Usage
 
 ```ts
-const filter = useFilter<definitions['test']>(query =>
-  query.contains('text', 'production')
+const filter = useFilter<definitions['example']>(query =>
+  query.contains('type', 'published')
 );
-const [result, reexecute] = useTable<definitions['test']>('test', '*', filter);
+const [result, reexecute] = useTable<definitions['example']>(
+  'example',
+  '*',
+  filter
+);
 
 return pipe(
   result,
   RD.fold3(
-    constant(<div>Loading...</div>),
-    e => <div>Query failed: {e}</div>,
+    // constant = x => () => x
+    constant(<div>Loading...</div>), // used when in loading state
+    e => <div>Query failed: {e}</div>, // used when in an error state
+    // used on success
     result => (
       <>
-        <h1>Production text</h1>
+        <h1>Published posts</h1>
         <div>
           {result.map(row => (
             <div key={row.id}>
