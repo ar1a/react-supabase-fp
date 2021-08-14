@@ -37,7 +37,7 @@ See also: [fp-ts](https://gcanti.github.io/fp-ts/) and [remote-data-ts](https://
 const filter = useFilter<definitions['test']>(query =>
   query.contains('text', 'production')
 );
-const result = useTable<definitions['test']>('test', '*', filter);
+const [result, reexecute] = useTable<definitions['test']>('test', '*', filter);
 
 return pipe(
   result,
