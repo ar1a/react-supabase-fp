@@ -12,7 +12,7 @@ const client = createClient(
   process.env.SUPABASE_ANON_KEY!
 );
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Provider value={client}>
       <Consumer />
@@ -20,8 +20,8 @@ const App = () => {
   );
 };
 
-const Consumer = () => {
-  const result = useTable<definitions['test']>('test');
+const Consumer: React.FC = () => {
+  const [result] = useTable<definitions['test']>('test');
   const [insertResult, execute] = useInsert<definitions['test']>('test');
   const [input, setInput] = useState('');
 
