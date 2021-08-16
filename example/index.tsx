@@ -21,21 +21,23 @@ const App: React.FC = () => {
 };
 
 const Consumer: React.FC = () => {
-  const [result] = useTable<definitions['test']>('test');
+  const [result, reexecute] = useTable<definitions['test']>('test');
   const [insertResult, execute] = useInsert<definitions['test']>('test');
   const [input, setInput] = useState('');
 
   const onSubmit: ReactEventHandler<HTMLFormElement> = e => {
     e.preventDefault();
-    execute({ text: input }).then(() => setInput(''));
-    // TODO: Use reexecute to rerender page
+    execute({ text: input })
+      .then(() => setInput(''))
+      .then(reexecute);
   };
 
   return pipe(
     result,
     RD.fold3(
-      constant(<div>Loading...</div>),
-      e => <div>Query failed: {e}</div>,
+      constant(<div>Loading...</div>), // Loading state
+      e => <div>Query failed: {e}</div>, // on failure
+      // on suceess
       result => (
         <>
           <h1>Rows</h1>
