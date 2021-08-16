@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "lint": "eslint index.tsx"
   },
   "dependencies": {
     "@devexperts/remote-data-ts": "^2.0.5",
@@ -21,6 +22,10 @@
   "devDependencies": {
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.8.4",
+    "eslint": "^7.32.0",
+    "eslint-plugin-functional": "^3.2.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-tsdoc": "^0.2.14",
     "openapi-typescript": "^4.0.0",
     "parcel": "1.12.3",
     "typescript": "^3.4.5"
