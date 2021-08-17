@@ -9,6 +9,7 @@ import { Provider, useInsert, useTable } from '../.';
 
 const client = createClient(
   'https://uxtxhzqpveqocjohidmf.supabase.co',
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   process.env.SUPABASE_ANON_KEY!
 );
 
