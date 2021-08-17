@@ -21,13 +21,13 @@ export const queryToTE = <T>({
     : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       TE.right(data!);
 
-export const storageQueryToTE = ({
+export const storageQueryToTE = <T>({
   data,
   error,
 }: {
-  readonly data: Blob | null;
+  readonly data: T | null;
   readonly error: Error | null;
-}): TE.TaskEither<string, Blob> =>
+}): TE.TaskEither<string, T> =>
   error
     ? TE.left(`${error.name} - ${error.message} - ${error.stack}`)
     : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
