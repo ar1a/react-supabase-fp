@@ -14,7 +14,7 @@ export const useDownload = (
   useEffect(() => {
     pipe(
       supabase,
-      TE.fromOption(constant('You must use useSingle with a Provider!')),
+      TE.fromOption(constant('You must use useDownload with a Provider!')),
       TE.chainTaskK(s => () => s.storage.from(bucket).download(path)),
       TE.chain(storageQueryToTE)
     )().then(flow(RD.fromEither, setResult));
