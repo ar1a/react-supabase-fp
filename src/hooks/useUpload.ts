@@ -24,7 +24,7 @@ export type FileBody =
 /**
  * Uploads a file to a storage bucket.
  * @param bucket - Bucket to upload to
- * @returns A function that uploads a file to a bucket, and the result of the upload
+ * @returns A function that uploads a file to the given bucket, and the result of the upload
  * @example
  * ```ts
  * const [result, upload] = useUpload('test');
