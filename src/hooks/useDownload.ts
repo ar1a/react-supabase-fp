@@ -19,7 +19,7 @@ import { useEffect, useState } from 'react';
  *   RD.fold3(
  *     constant(<div>Loading...</div>), // Loading state
  *     e => <div>Query failed: {e}</div>, // on failure
- *     // on suceess
+ *     // on success
  *     result => <img src={URL.createObjectURL(result)} />
  *   )
  * );

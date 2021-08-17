@@ -38,7 +38,7 @@ const Consumer: React.FC = () => {
     RD.fold3(
       constant(<div>Loading...</div>), // Loading state
       e => <div>Query failed: {e}</div>, // on failure
-      // on suceess
+      // on success
       result => (
         <>
           <h1>Rows</h1>

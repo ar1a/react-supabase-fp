@@ -48,7 +48,7 @@ export type FileBody =
  *     ),
  *     constant(<div>Loading...</div>), // Loading state
  *     e => <div>Query failed: {e}</div>, // on failure
- *     // on suceess
+ *     // on success
  *     result => <div>Key: {result}</div>
  *   )
  * );
