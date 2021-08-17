@@ -4,7 +4,7 @@ import * as TE from 'fp-ts/TaskEither';
 import { useState } from 'react';
 import { constant, flow, identity, pipe } from 'fp-ts/lib/function';
 import { Filter } from '../types';
-import { promiseLikeToTask, queryToTE } from '../utils';
+import { promiseLikeToTask, queryToEither } from '../utils';
 
 /**
  * Upserts into a supabase table.
@@ -60,7 +60,7 @@ export const useUpsert = <T = unknown>(
       TE.map(supabase => supabase.from<T>(tableName).upsert(values)),
       TE.map(filter || identity),
       TE.chainTaskK(promiseLikeToTask),
-      TE.chain(queryToTE)
+      TE.chainEitherK(queryToEither)
     )().then(flow(RD.fromEither, setResult));
   };
 

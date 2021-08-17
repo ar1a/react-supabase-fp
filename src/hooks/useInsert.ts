@@ -5,7 +5,7 @@ import { constant, flow, pipe } from 'fp-ts/lib/function';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
-import { promiseLikeToTask, queryToTE } from '../utils';
+import { promiseLikeToTask, queryToEither } from '../utils';
 
 /**
  * Inserts data into a supabase table.
@@ -69,7 +69,7 @@ export const useInsert = <T = unknown>(
       TE.fromOption(constant('You must use useInsert from inside a Provider!')),
       TE.map(supabase => supabase.from<T>(tableName).insert(values)),
       TE.chainTaskK(promiseLikeToTask),
-      TE.chain(queryToTE)
+      TE.chainEitherK(queryToEither)
     )().then(flow(RD.fromEither, setResult));
   };
 

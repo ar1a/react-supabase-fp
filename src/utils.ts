@@ -1,4 +1,3 @@
-import * as TE from 'fp-ts/TaskEither';
 import * as E from 'fp-ts/Either';
 import * as T from 'fp-ts/Task';
 
@@ -10,17 +9,17 @@ type PostgrestError = {
   readonly code: string;
 };
 
-export const queryToTE = <T>({
+export const queryToEither = <T>({
   data,
   error,
 }: {
   readonly data: T | null;
   readonly error: PostgrestError | null;
-}): TE.TaskEither<string, T> =>
+}): E.Either<string, T> =>
   error
-    ? TE.left(`${error.message} - ${error.details} - ${error.hint}`)
+    ? E.left(`${error.message} - ${error.details} - ${error.hint}`)
     : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      TE.right(data!);
+      E.right(data!);
 
 export const storageQueryToEither = <T>({
   data,

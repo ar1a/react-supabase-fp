@@ -8,7 +8,7 @@ import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
 import { Filter } from '../types';
-import { promiseLikeToTask, queryToTE } from '../utils';
+import { promiseLikeToTask, queryToEither } from '../utils';
 
 export type UseTableResponse<T = unknown> = readonly [
   RD.RemoteData<string, readonly T[]>,
@@ -62,7 +62,7 @@ export const useTable = <T = unknown>(
         TE.map(supabase => supabase.from<T>(tableName).select(selectArgs)),
         TE.map(filter || identity),
         TE.chainTaskK(promiseLikeToTask),
-        TE.chain(queryToTE)
+        TE.chainEitherK(queryToEither)
       )().then(flow(RD.fromEither, setResult)),
     [supabase, filter, tableName, selectArgs]
   );

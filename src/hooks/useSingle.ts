@@ -7,7 +7,7 @@ import * as RD from '@devexperts/remote-data-ts';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
 import { Filter } from '../types';
-import { promiseLikeToTask, queryToTE } from '../utils';
+import { promiseLikeToTask, queryToEither } from '../utils';
 
 export type UseSingleResponse<T> = readonly [
   RD.RemoteData<string, T>,
@@ -65,7 +65,7 @@ export const useSingle = <T = unknown>(
         TE.map(filter || identity),
         TE.map(x => x.single()),
         TE.chainTaskK(promiseLikeToTask),
-        TE.chain(queryToTE)
+        TE.chainEitherK(queryToEither)
       )().then(flow(RD.fromEither, setResult)),
     [supabase, tableName, selectArgs, filter]
   );

@@ -6,7 +6,7 @@ import { Filter } from '../types';
 import { useStable } from 'fp-ts-react-stable-hooks';
 import * as S from 'fp-ts/string';
 import * as E from 'fp-ts/Eq';
-import { promiseLikeToTask, queryToTE } from '../utils';
+import { promiseLikeToTask, queryToEither } from '../utils';
 
 /**
  * Deletes data from a supabase table.
@@ -58,7 +58,7 @@ export const useDelete = <T = unknown>(
       TE.map(supabase => supabase.from<T>(tableName).delete()),
       TE.map(filter),
       TE.chainTaskK(promiseLikeToTask),
-      TE.chain(queryToTE)
+      TE.chainEitherK(queryToEither)
     )().then(flow(RD.fromEither, setResult));
   };
 
