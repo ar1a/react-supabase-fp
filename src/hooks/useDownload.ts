@@ -5,6 +5,26 @@ import { storageQueryToTE } from '../utils';
 import * as RD from '@devexperts/remote-data-ts';
 import { useEffect, useState } from 'react';
 
+/**
+ * Downloads a file from a storage bucket.
+ * @param bucket - Name of the bucket
+ * @param path - The path to download
+ * @returns A blob of the file, or an error
+ * @example
+ * ```ts
+ * const image = useDownload('test', 'public/test.png');
+
+ * return pipe(
+ *   image,
+ *   RD.fold3(
+ *     constant(<div>Loading...</div>), // Loading state
+ *     e => <div>Query failed: {e}</div>, // on failure
+ *     // on suceess
+ *     result => <img src={URL.createObjectURL(result)} />
+ *   )
+ * );
+ * ```
+ */
 export const useDownload = (
   bucket: string,
   path: string
