@@ -6,7 +6,10 @@ import { useSupabase } from './useSupabase';
 import { FileOptions } from '@supabase/storage-js';
 import { storageQueryToTE } from '../utils';
 
-type FileBody =
+/**
+ * Things you can upload to a storage bucket. Defined by Supabase's storage-js.
+ */
+export type FileBody =
   | ArrayBuffer
   | ArrayBufferView
   | Blob
