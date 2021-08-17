@@ -4,7 +4,7 @@ import { constant, flow, pipe } from 'fp-ts/lib/function';
 import { useCallback, useState } from 'react';
 import { useSupabase } from './useSupabase';
 import { FileOptions } from '@supabase/storage-js';
-import { storageQueryToTE } from '../utils';
+import { storageQueryToEither } from '../utils';
 
 /**
  * Things you can upload to a storage bucket. Defined by Supabase's storage-js.
@@ -74,7 +74,7 @@ export const useUpload = (
         TE.chainTaskK(s => () =>
           s.storage.from(bucket).upload(path, fileBody, fileOptions)
         ),
-        TE.chain(storageQueryToTE),
+        TE.chainEitherK(storageQueryToEither),
         TE.map(x => x.Key)
       )().then(flow(RD.fromEither, setResult));
     },

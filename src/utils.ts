@@ -1,4 +1,5 @@
 import * as TE from 'fp-ts/TaskEither';
+import * as E from 'fp-ts/Either';
 import * as T from 'fp-ts/Task';
 
 // ! This is from Postgrest-js but they don't export it????
@@ -21,17 +22,17 @@ export const queryToTE = <T>({
     : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       TE.right(data!);
 
-export const storageQueryToTE = <T>({
+export const storageQueryToEither = <T>({
   data,
   error,
 }: {
   readonly data: T | null;
   readonly error: Error | null;
-}): TE.TaskEither<string, T> =>
+}): E.Either<string, T> =>
   error
-    ? TE.left(`${error.name} - ${error.message} - ${error.stack}`)
+    ? E.left(`${error.name} - ${error.message} - ${error.stack}`)
     : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      TE.right(data!);
+      E.right(data!);
 
 export const promiseLikeToPromise = <T>(
   promiseLike: PromiseLike<T>
