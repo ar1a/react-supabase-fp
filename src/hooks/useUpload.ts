@@ -18,6 +18,39 @@ type FileBody =
   | URLSearchParams
   | string;
 
+/**
+ * Uploads a file to a storage bucket.
+ * @param bucket - Bucket to upload to
+ * @returns A function that uploads a file to a bucket, and the result of the upload
+ * @example
+ * ```ts
+ * const [result, upload] = useUpload('test');
+ * const [file, setFile] = useState<File | undefined>();
+ *  const changeHandler: React.ChangeEventHandler<HTMLInputElement> = e =>
+ *   setFile(e.target.files?.[0]);
+ *  // eslint-disable-next-line functional/no-return-void
+ * const clickHandler = (): void => {
+ *   if (file) {
+ *     upload('public/example.png', file, { upsert: true });
+ *   }
+ * };
+ *  return pipe(
+ *   result,
+ *   RD.fold(
+ *     () => (
+ *       <div>
+ *         <input type="file" name="file" onChange={changeHandler} />
+ *         <button onClick={clickHandler}>Upload</button>
+ *       </div>
+ *     ),
+ *     constant(<div>Loading...</div>), // Loading state
+ *     e => <div>Query failed: {e}</div>, // on failure
+ *     // on suceess
+ *     result => <div>Key: {result}</div>
+ *   )
+ * );
+ * ```
+ */
 export const useUpload = (
   bucket: string
 ): readonly [
