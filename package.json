@@ -33,7 +33,7 @@
     "trailingComma": "es5"
   },
   "name": "react-supabase-fp",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "React hooks library for supabase using fp-ts",
   "keywords": [
     "react",
