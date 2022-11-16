@@ -54,7 +54,7 @@ export const useSignIn = (): readonly [
           },
           x => {
             if (x.error) {
-              setResult(RD.failure(x.error));
+              setResult(RD.failure(Error(x.error.message)));
             } else {
               pipe(
                 x.session,
