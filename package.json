@@ -14,7 +14,7 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "eslint src",
-    "prepare": "tsdx build; husky install",
+    "prepare": "tsdx build && husky install",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "docs": "typedoc src/index.tsx"
