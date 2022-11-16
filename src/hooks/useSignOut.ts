@@ -40,7 +40,7 @@ export const useSignOut = (): readonly [
           () => setResult(RD.failure(new Error('Supabase client not found'))),
           ({ error }) => {
             if (error) {
-              setResult(RD.failure(error));
+              setResult(RD.failure(Error(error.message)));
             } else {
               setResult(RD.success(undefined));
             }
