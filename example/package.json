@@ -27,7 +27,7 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-tsdoc": "^0.2.14",
     "openapi-typescript": "^4.0.0",
-    "parcel": "1.12.3",
+    "parcel": "2.8.0",
     "typescript": "^3.4.5"
   }
 }
