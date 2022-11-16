@@ -26,4 +26,9 @@ module.exports = {
   rules: {
     'tsdoc/syntax': 'warn',
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };
