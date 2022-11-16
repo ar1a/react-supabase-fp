@@ -59,7 +59,6 @@
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@size-limit/preset-small-lib": "^8.1.0",
-    "@supabase/postgrest-js": "^1.1.0",
     "@types/react": "^17.0.9",
     "@types/react-dom": "^17.0.6",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
